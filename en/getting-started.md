@@ -14,7 +14,7 @@ Choose one installation method:
 
 ## 2) Confirm Hugo version compatibility
 
-Ananke on `main` expects Hugo `0.146.0` or newer. Check with:
+Check what Hugo version you have installed with `hugo version` and then compare against the minimum requirement in `config/_default/module.toml`.
 
 ```bash
 hugo version
