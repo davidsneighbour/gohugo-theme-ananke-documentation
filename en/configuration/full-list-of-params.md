@@ -4,11 +4,16 @@ date: '2026-04-15T16:27:20+07:00'
 tags: []
 featured_image: ""
 description: ""
+params:
+    ananke:
+        show_date: false
 ---
 
 This is a list of all parameters that currently exist in the theme with links to their documentation.
 
 > Note: this list is not up to date and may miss some parameters. If you find any missing parameters, please submit a pull request to update this page. This note is a canary ;) If it disappears the list is up to date and will be updated continuously as changes are made to the theme.
+
+## Configuration parameters
 
 All parameters are under the `params.ananke` namespace. They are listed here without this prefix for readability. Depending on your configuration they are located at one of these locations:
 
@@ -19,6 +24,26 @@ All parameters are under the `params.ananke` namespace. They are listed here wit
 | ------------------------ | ------- | ------------------------------------------------- |
 | `show_recent_posts`      | `true`  | Show recent posts on the homepage.                |
 | `home.content_alignment` | `left`  | Set the alignment of the content on the homepage. |
+
+## Front matter parameters
+
+All parameters are under the `params.ananke` namespace. They are listed here without this prefix for readability. They are set individually in the front matter of your content files.
+
+Example front matter:
+
+```yaml
+---
+params:
+  ananke:
+    show_date: false
+---
+```
+
+Older versions of Hugo allow the frontmatter to work without being under the `params` namespace, but it is not recommended to use this method as it will not be compatible with future versions of Hugo.
+
+| Parameter   | Default | Description                |
+| ----------- | ------- | -------------------------- |
+| `show_date` | `true`  | Show the date of the post. |
 
 ## Configured Ananke Params (dump)
 
