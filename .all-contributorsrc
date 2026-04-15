@@ -1,4 +1,21 @@
 {
   "projectName": "gohugo-theme-ananke-documentation",
-  "projectOwner": "davidsneighbour"
+  "projectOwner": "davidsneighbour",
+  "files": [
+    "README.md"
+  ],
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributorsPerLine": 7,
+  "contributors": [
+    {
+      "login": "davidsneighbour",
+      "name": "Patrick Kollitsch",
+      "avatar_url": "https://avatars.githubusercontent.com/u/83281?v=4",
+      "profile": "https://kollitsch.dev/",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ]
 }
