@@ -1,6 +1,7 @@
 ---
 title: Calculate and show reading time
 date: 2026-01-16T08:00:00.000+0700
+weight: 400
 ---
 
 The reading time displayed in `layouts/_default/single.html` can now be configured via a `reading_speed` parameter, instead of always using Hugo's computed `.ReadingTime`. ([GitHub][1])
@@ -18,10 +19,10 @@ You can set `reading_speed` globally or per language. In multilingual sites, the
 
 ```toml
 [languages]
-  [languages.en.params]
-    reading_speed = 228
-  [languages.de.params]
-    reading_speed = 179
+[languages.en.params]
+reading_speed = 228
+[languages.de.params]
+reading_speed = 179
 ```
 
 ## Notes

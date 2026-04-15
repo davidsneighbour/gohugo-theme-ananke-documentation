@@ -1,6 +1,7 @@
 ---
 title: Colours
 date: 2026-01-16T08:00:00.000+0700
+weight: 300
 ---
 
 
@@ -20,4 +21,4 @@ text_color = "green"
 Individual Page (prioritized over global):
 Set the `text_color` param in a page's markdown file front matter.
 
-note: The value of `text_color` must be a valid tachyons color class. A list can be found [here](https://tachyons.io/docs/themes/skins/).
+note: The value of `text_color` must be a [valid tachyons color class](https://tachyons.io/docs/themes/skins/).

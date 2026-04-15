@@ -1,6 +1,7 @@
 ---
 title: Social Media Networks
 date: 2026-01-16T08:00:00.000+0700
+weight: 300
 ---
 
 Ananke automatically adds "follow" link icons to the header and footer and "Share" link icons to pages unless the `disable_share` parameter is set to true either on the site level (site params) or page level (front matter). Each services can show a label, an icon, and be formatted in a custom color.
@@ -215,37 +216,36 @@ This is a list of slugs for already configured networks in the theme. You can ad
 
 | Slug          | profile | share | Notes                                                                                                  |
 | ------------- | :-----: | :---: | ------------------------------------------------------------------------------------------------------ |
-| bluesky       |    ✅    |   ✅   | Read notes about [configuring networks with multiple hosts](#configuring-networks-with-multiple-hosts) |
-| email         |    ❌    |   ✅   |                                                                                                        |
-| facebook      |    ✅    |   ✅   |                                                                                                        |
-| github        |    ✅    |   ❌   |                                                                                                        |
-| gitlab        |    ✅    |   ❌   |                                                                                                        |
-| hackernews    |    ✅    |   ✅   |                                                                                                        |
-| instagram     |    ✅    |   ❔   |                                                                                                        |
-| keybase       |    ✅    |   ❌   |                                                                                                        |
-| linkedin      |    ✅    |   ✅   |                                                                                                        |
-| medium        |    ✅    |   ❔   |                                                                                                        |
-| mastodon      |    ✅    |   ❌   | Read notes about [configuring networks with multiple hosts](#configuring-networks-with-multiple-hosts) |
-| pinterest     |    ✅    |   ✅   |                                                                                                        |
-| reddit        |    ✅    |   ✅   |                                                                                                        |
-| rss           |    ✅    |   ❌   | add `profilelink` to link to your RSS feed                                                             |
-| slack         |    ✅    |   ❔   | add `profilelink` to your slack channel                                                                |
-| stackoverflow |    ✅    |   ❌   | your `username` is your profile's ID                                                                   |
-| telegram      |    ✅    |   ✅   |                                                                                                        |
-| tiktok        |    ✅    |   ✅   |                                                                                                        |
-| tumblr        |    ✅    |   ✅   |                                                                                                        |
-| twitter       |    ✅    |   ✅   |                                                                                                        |
-| whatsapp      |    ❌    |   ✅   |                                                                                                        |
-| xing          |    ✅    |   ✅   |                                                                                                        |
-| x-twitter     |    ✅    |   ✅   |                                                                                                        |
-| youtube       |    ✅    |   ❔   |                                                                                                        |
+| bluesky       |    ✅   |   ✅  | Read notes about [configuring networks with multiple hosts](#configuring-networks-with-multiple-hosts) |
+| email         |    ❌   |   ✅  |                                                                                                        |
+| facebook      |    ✅   |   ✅  |                                                                                                        |
+| github        |    ✅   |   ❌  |                                                                                                        |
+| gitlab        |    ✅   |   ❌  |                                                                                                        |
+| hackernews    |    ✅   |   ✅  |                                                                                                        |
+| instagram     |    ✅   |   ❔  |                                                                                                        |
+| keybase       |    ✅   |   ❌  |                                                                                                        |
+| linkedin      |    ✅   |   ✅  |                                                                                                        |
+| medium        |    ✅   |   ❔  |                                                                                                        |
+| mastodon      |    ✅   |   ❌  | Read notes about [configuring networks with multiple hosts](#configuring-networks-with-multiple-hosts) |
+| pinterest     |    ✅   |   ✅  |                                                                                                        |
+| reddit        |    ✅   |   ✅  |                                                                                                        |
+| rss           |    ✅   |   ❌  | add `profilelink` to link to your RSS feed                                                             |
+| slack         |    ✅   |   ❔  | add `profilelink` to your slack channel                                                                |
+| stackoverflow |    ✅   |   ❌  | your `username` is your profile's ID                                                                   |
+| telegram      |    ✅   |   ✅  |                                                                                                        |
+| tiktok        |    ✅   |   ✅  |                                                                                                        |
+| tumblr        |    ✅   |   ✅  |                                                                                                        |
+| twitter       |    ✅   |   ✅  |                                                                                                        |
+| whatsapp      |    ❌   |   ✅  |                                                                                                        |
+| xing          |    ✅   |   ✅  |                                                                                                        |
+| x-twitter     |    ✅   |   ✅  |                                                                                                        |
+| youtube       |    ✅   |   ❔  |                                                                                                        |
 
 Legend:
-✅ --- feature configured
-❌ --- feature not configured and not available
-❔ --- feature not configured, but might be available
+✅ - feature configured
+❌ - feature not configured and not available
+❔ - feature not configured, but might be available
 
----
 
 ## Migrate from versions before v2.11
 

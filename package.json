@@ -1,0 +1,38 @@
+{
+  "name": "@davidsneighbour/gohugo-theme-ananke-documentation",
+  "description": "Documentation for Ananke, a Hugo theme and module.",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "Patrick Kollitsch <davidsneighbourdev+gh@gmail.com>",
+  "keywords": [
+    "hugo",
+    "hugo-theme",
+    "hugo-module",
+    "documentation"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@github/markdownlint-github": "0.8.0",
+    "markdownlint": "0.40.0",
+    "markdownlint-cli2": "0.22.0",
+    "markdownlint-rule-extended-ascii": "0.2.1",
+    "markdownlint-rule-list-duplicates": "0.0.1",
+    "markdownlint-rule-relative-links": "5.1.0",
+    "markdownlint-rule-search-replace": "1.2.0",
+    "markdownlint-rule-title-case-style": "0.4.3"
+  },
+  "scripts": {
+    "lint:markdown": "markdownlint-cli2 en/**/*.{md,mdx}",
+    "lint:markdown:fix": "markdownlint-cli2 --fix en/**/*.{md,mdx}"
+  },
+  "cspell": {
+    "version": "0.2",
+    "language": "en-GB",
+    "ignorePaths": [
+      "CHANGELOG.md",
+      "LICENSE.md",
+      "node_modules"
+    ]
+  },
+  "type": "module"
+}

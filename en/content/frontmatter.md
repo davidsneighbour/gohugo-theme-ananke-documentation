@@ -1,6 +1,7 @@
 ---
 title: Frontmatter
 date: 2026-01-16T08:00:00.000+0700
+weight: 200
 ---
 
 
@@ -30,8 +31,6 @@ disableBreadcrumbs = true
 
 This removes the breadcrumb trail from a single page layout.
 
----
-
 ## Example: Custom Layout
 
 ```toml
@@ -39,8 +38,6 @@ layout = "project"
 ```
 
 This loads `layouts/_default/project.html` or a corresponding type fallback.
-
----
 
 ## Example: Using `linktitle`
 
@@ -50,8 +47,6 @@ linktitle = "Short Name"
 ```
 
 This helps keep breadcrumbs and menus short while using a full title on the page.
-
----
 
 ## Defaults & Fallbacks
 
@@ -63,7 +58,6 @@ Most fields are optional. When not set:
 * `description` may be empty unless manually added
 * `disableBreadcrumbs` is `false` unless set
 
----
 
 ## Notes
 

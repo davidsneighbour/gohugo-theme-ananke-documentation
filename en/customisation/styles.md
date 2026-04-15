@@ -1,6 +1,7 @@
 ---
 title: Styles
 date: 2026-01-16T08:00:00.000+0700
+weight: 600
 ---
 
 
@@ -22,9 +23,8 @@ which will give you a body class like this:
 
 note: The `body_classes` parameter will not change the font used in post content. To do this, you must use the `post_content_classes` parameter.
 
-You can find a list of available typefaces [here](https://github.com/tachyons-css/tachyons/blob/v4.7.0/src/_font-family.css).
-
-And a list of background colors [here](https://github.com/tachyons-css/tachyons/blob/v4.7.0/src/_skins.css#L96).
+* [list of available typefaces](https://github.com/tachyons-css/tachyons/blob/v4.7.0/src/_font-family.css).
+* [list of background colours](https://github.com/tachyons-css/tachyons/blob/v4.7.0/src/_skins.css#L96).
 
 ## CSS
 

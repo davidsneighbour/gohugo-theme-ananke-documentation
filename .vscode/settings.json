@@ -1,0 +1,37 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#1f6fd0",
+        "activityBar.background": "#1f6fd0",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#ee90bb",
+        "activityBarBadge.foreground": "#15202b",
+        "commandCenter.border": "#e7e7e799",
+        "sash.hoverBorder": "#1f6fd0",
+        "statusBar.background": "#1857a4",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#1f6fd0",
+        "statusBarItem.remoteBackground": "#1857a4",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#1857a4",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#1857a499",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#1857a4",
+    "editor.formatOnSave": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveWhenNoErrors": true,
+    "files.autoSaveWorkspaceFilesOnly": true,
+    "cSpell.customDictionaries": {
+        "workspace-dictionary": {
+            "name": "workspace-dictionary",
+            "path": "${workspaceFolder}/.vscode/workspace-dictionary.txt",
+            "addWords": true,
+            "scope": "workspace"
+        }
+    },
+    "markdownlint.configFile": ".markdownlint.jsonc",
+    "markdown.extension.tableFormatter.enabled": false,
+    "markdown.extension.tableFormatter.normalizeIndentation": false
+}

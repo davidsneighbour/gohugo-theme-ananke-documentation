@@ -4,6 +4,7 @@ date: '2026-04-15T16:27:20+07:00'
 tags: []
 featured_image: ""
 description: ""
+weight: 900
 ---
 
 This is a list of all parameters that currently exist in the theme with links to their documentation.
@@ -29,11 +30,9 @@ All front matter parameters are under the `params.ananke` namespace. They are li
 Example front matter:
 
 ```yaml
----
 params:
   ananke:
     show_date: false
----
 ```
 
 If a parameter is marked as "Global", it can also be set in the configuration under the `page` namespace. For example, the `show_date` parameter can be set globally in the configuration like this:
@@ -48,8 +47,8 @@ A local front matter parameter will override the global configuration parameter.
 Older versions of Hugo allow the front matter to work without being under the `params` namespace, but it is not recommended to use this method as it will not be compatible with future versions of Hugo.
 
 | Parameter   | Global | Default | Description                |
-| ----------- | ------ | ------- | -------------------------- |
-| `show_date` | ✓      | `true`  | Show the date of the post. |
+| ----------- | :----: | :-----: | -------------------------- |
+| `show_date` |   ✓    | `true`  | Show the date of the post. |
 
 ## Configured Ananke Params (dump)
 
