@@ -4,8 +4,6 @@ date: 2026-04-15T08:00:00.000+0700
 weight: 100
 ---
 
-## Contributors
-
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
