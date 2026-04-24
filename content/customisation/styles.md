@@ -50,6 +50,6 @@ For example, if your css files are `assets/ananke/css/custom.css` and `assets/an
 custom_css = ["custom.css","special.css"]
 ```
 
-__IMPORTANT__: Files registered through the `custom_css` array, while unlimited in number, must be of the same type (Ex: all `scss` or all `css`)
+**IMPORTANT**: Files registered through the `custom_css` array, while unlimited in number, must be of the same type (Ex: all `scss` or all `css`)
 
-__Note on retrocompatibility for custom css__: If the files registered through the `custom_css` setting are not found in `assets/ananke/css` the theme will expect them to live at the given path relative to the static directory and load them as `<link>` requests.
+**Note on retrocompatibility for custom css**: If the files registered through the `custom_css` setting are not found in `assets/ananke/css` the theme will expect them to live at the given path relative to the static directory and load them as `<link>` requests.

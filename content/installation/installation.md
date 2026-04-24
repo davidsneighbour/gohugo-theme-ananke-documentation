@@ -25,5 +25,6 @@ There are two primary ways to install Ananke:
 **Recommendation:** The **Hugo Module approach is preferred**, as it provides a more flexible and future-proof way to manage themes.
 
 For step-by-step installation instructions, refer to these **work-in-progress** sample repositories:
+
 * **Hugo Module installation (preferred):** [gohugo-theme-ananke-template-mod](https://github.com/davidsneighbour/gohugo-theme-ananke-template-mod)
 * **Git Submodule installation (Legacy Method):** [gohugo-theme-ananke-template-submod](https://github.com/davidsneighbour/gohugo-theme-ananke-template-submod)

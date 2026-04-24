@@ -7,14 +7,14 @@ Ananke currently supports two commenting systems: Disqus and [Commento](https://
 
 ## Disqus
 
-Using [Disqus](https://disqus.com/) as a comment system for your website is an internal feature of Hugo. For more information see the official [Hugo documentation](http://gohugo.io/content-management/comments/). 
+Using [Disqus](https://disqus.com/) as a comment system for your website is an internal feature of Hugo. For more information see the official [Hugo documentation](http://gohugo.io/content-management/comments/).
 
 ```toml
 [services.disqus]
 shortname = 'YOURSHORTNAME'
 ```
 
-Note that the setup for Disqus is _NOT_ done inside of the `params` section, but with in the `services` section of your config file. To turn off Disqus, remove, or comment out the preceding lines.
+Note that the setup for Disqus is *NOT* done inside of the `params` section, but with in the `services` section of your config file. To turn off Disqus, remove, or comment out the preceding lines.
 
 ## Commento.io
 
