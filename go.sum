@@ -1,2 +1,4 @@
 github.com/gohugo-ananke/ananke/v2 v2.13.0 h1:V/cUloKhL5aIqkmS10fDpCOMg+W8XMgDbX0qIewS0KQ=
 github.com/gohugo-ananke/ananke/v2 v2.13.0/go.mod h1:HLy3O8WIkY0EmkMryllP6ilZVvAWz1XsLnfYLuD7dvE=
+github.com/gohugo-ananke/ananke/v2 v2.13.3 h1:doC/ZS3IRZ3O4h5GlzQe2FRhJLhyHlDq8xno8/tHI7Q=
+github.com/gohugo-ananke/ananke/v2 v2.13.3/go.mod h1:HLy3O8WIkY0EmkMryllP6ilZVvAWz1XsLnfYLuD7dvE=
