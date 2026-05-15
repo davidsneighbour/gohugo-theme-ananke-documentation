@@ -37,7 +37,7 @@ td code {
 /* doing some evil font overriding stuff */
 .avenir,
 .serif {
-  font-family: var(--font-rubik) !important;
+  font-family: var(--font-inter-variable) !important;
 }
 
 .athelas {
