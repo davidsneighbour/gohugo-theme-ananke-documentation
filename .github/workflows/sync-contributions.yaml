@@ -1,0 +1,76 @@
+name: Sync contributors
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 4 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    env:
+      GH_TOKEN: ${{ secrets.CONTRIBUTOR_SYNC_TOKEN }}
+      OWNER: gohugo-ananke
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch contributor source files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mkdir -p data/contributors
+
+          repos=(
+            "gohugo-theme-ananke"
+            "gohugo-theme-ananke-documentation"
+            "gohugo-theme-ananke-demo-basic"
+            "gohugo-theme-ananke-demo-starter"
+          )
+
+          for repo in "${repos[@]}"; do
+            echo "Fetching .all-contributorsrc from ${OWNER}/${repo}"
+
+            gh api \
+              --method GET \
+              "repos/${OWNER}/${repo}/contents/.all-contributorsrc" \
+              --jq '.content' \
+              | tr -d '\n' \
+              | base64 --decode \
+              > "data/contributors/${repo}.json"
+          done
+
+      - name: Generate central contributors page
+        run: node ./scripts/merge-all-contributors.ts --config=./data/contributors --output=./docs/contributors.md
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if git diff --quiet -- data/contributors docs/contributors.md; then
+            echo "No contributor changes detected."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/contributors docs/contributors.md
+          git commit -m "docs(contributors): sync aggregated contributors"
+          git push
