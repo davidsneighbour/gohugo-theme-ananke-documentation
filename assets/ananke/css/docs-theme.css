@@ -23,4 +23,5 @@ body {
 
 p code {
     background-color: var(--color-ananke-100);
+    font-size: .95 rem;
 }
