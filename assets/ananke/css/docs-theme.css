@@ -20,3 +20,7 @@ body {
     background-color: var(--color-ananke-50);
     color: var(--color-ananke-975);
 }
+
+p code {
+    background-color: var(--color-ananke-100);
+}

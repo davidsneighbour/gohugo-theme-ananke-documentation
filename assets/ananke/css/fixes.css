@@ -28,12 +28,6 @@ article {
   line-height: 1.6;
 }
 
-p code,
-li code,
-td code {
-  background-color: rgba(var(--color-ananke-400), 0.4);
-}
-
 /* doing some evil font overriding stuff */
 .avenir,
 .serif {
