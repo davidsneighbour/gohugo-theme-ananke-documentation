@@ -6,6 +6,7 @@ date: 2026-01-16T08:00:00.000+0700
 * [Change the hero background](#change-the-hero-background)
 * [Use the images front matter array](#use-the-images-front-matter-array)
 * [Featured image as Page Resources](#featured-image-as-page-resources)
+* [Featured images in summaries](#featured-images-in-summaries)
 * [Other hero settings](#other-hero-settings)
 
 ## Change the hero background
@@ -25,6 +26,12 @@ This keeps existing `featured_image` values working and allows pages to share im
 ## Featured image as Page Resources
 
 If user is using [Page Resources](https://gohugo.io/content-management/page-resources/), the theme will try and match the `featured_image` from with a page resource of type `image` and use its relative permalink. If no `featured_image` is set, the theme will use the first value from the page's `images` front matter array. If no `featured_image` or `images` value is set, the theme will look for a Page Resource of type `image` whose filepath includes either `cover` or `feature`
+
+## Featured images in summaries
+
+Featured images are also used in list and home page summaries. These summary images include fallback `width` and `height` attributes so that images without intrinsic dimensions, such as some SVG files, still have a visible display area.
+
+For best results, make sure SVG featured images define a `viewBox` and either explicit dimensions or an aspect ratio that matches the intended image.
 
 ## Other hero settings
 
