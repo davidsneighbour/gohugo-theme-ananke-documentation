@@ -4,6 +4,7 @@ date: 2026-01-16T08:00:00.000+0700
 ---
 
 * [Change the hero background](#change-the-hero-background)
+* [Use the images front matter array](#use-the-images-front-matter-array)
 * [Featured image as Page Resources](#featured-image-as-page-resources)
 * [Other hero settings](#other-hero-settings)
 
@@ -11,9 +12,19 @@ date: 2026-01-16T08:00:00.000+0700
 
 For any page or post you can add a featured image by including the local path in front matter (see content in the `exampleSite/content/en/_readme` file for examples): `featured_image = '/images/gohugo-default-sample-hero-image.jpg'`
 
+## Use the images front matter array
+
+If `featured_image` is not set, Ananke will use the first value from the page's `images` front matter array as the featured image.
+
+```toml
+images = ["/images/gohugo-default-sample-hero-image.jpg"]
+```
+
+This keeps existing `featured_image` values working and allows pages to share image metadata with Hugo's embedded templates.
+
 ## Featured image as Page Resources
 
-If user is using [Page Resources](https://gohugo.io/content-management/page-resources/), the theme will try and match the `featured_image` from with a page resource of type `image` and use its relative permalink. If no `featured_image` is set, the theme will look for a Page Resource of type `image` whose filepath includes either `cover` or `feature`
+If user is using [Page Resources](https://gohugo.io/content-management/page-resources/), the theme will try and match the `featured_image` from with a page resource of type `image` and use its relative permalink. If no `featured_image` is set, the theme will use the first value from the page's `images` front matter array. If no `featured_image` or `images` value is set, the theme will look for a Page Resource of type `image` whose filepath includes either `cover` or `feature`
 
 ## Other hero settings
 
