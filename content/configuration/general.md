@@ -6,6 +6,7 @@ date: 2026-01-16T08:00:00.000+0700
 * [Activate the contact form](#activate-the-contact-form)
 * [Logo](#logo)
 * [Localize date format](#localize-date-format)
+* [Show or hide dates on pages](#show-or-hide-dates-on-pages)
 * [Show images on list page cards](#show-images-on-list-page-cards)
 
 > [!IMPORTANT]
@@ -41,6 +42,22 @@ date_format = "2. January 2006"
 
 With hugo 0.87.0 and above, you can also use predefined date layouts, like `:date_full`, and it will output localized dates or times. See hugo's documentation of the [`time.Format` function](https://gohugo.io/functions/dateformat/) for more details.
 
+### Show or hide dates on pages
+
+Ananke shows page dates by default where the template includes date output. You can hide dates across pages and summary cards by setting `ananke.pages.show_date` to `false`.
+
+```toml
+[params.ananke.pages]
+show_date = false
+```
+
+You can override this per page with front matter:
+
+```yaml
+ananke:
+  show_date: true
+```
+
 ### Show images on list page cards
 
 By default, list pages render compact summary cards without images. You can opt in to image cards for list pages by enabling the `ananke.pages.show_list_images` parameter.
@@ -50,6 +67,6 @@ By default, list pages render compact summary cards without images. You can opt 
 show_list_images = true
 ```
 
-When enabled, list pages use the same image summary card that is used for recent posts on the home page. Pages without a configured featured image still render without an image.
+When enabled, list pages use the same image summary card that is used for recent posts on the home page. Pages without a configured featured image still render without an image. Date display is controlled separately with `ananke.pages.show_date`.
 
 See [Hero section](/customisation/hero-section/) for information about configuring featured images.
