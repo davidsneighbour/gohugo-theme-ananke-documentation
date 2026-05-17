@@ -6,6 +6,7 @@ date: 2026-01-16T08:00:00.000+0700
 * [Change the hero background](#change-the-hero-background)
 * [Use the images front matter array](#use-the-images-front-matter-array)
 * [Featured image as Page Resources](#featured-image-as-page-resources)
+* [Responsive hero background images](#responsive-hero-background-images)
 * [Other hero settings](#other-hero-settings)
 
 ## Change the hero background
@@ -25,6 +26,26 @@ This keeps existing `featured_image` values working and allows pages to share im
 ## Featured image as Page Resources
 
 If user is using [Page Resources](https://gohugo.io/content-management/page-resources/), the theme will try and match the `featured_image` from with a page resource of type `image` and use its relative permalink. If no `featured_image` is set, the theme will use the first value from the page's `images` front matter array. If no `featured_image` or `images` value is set, the theme will look for a Page Resource of type `image` whose filepath includes either `cover` or `feature`
+
+## Responsive hero background images
+
+Ananke can generate responsive hero background images when the hero image is available as a Hugo Page Resource. The original image is still used for static paths, remote paths, SVG files, or any image that Hugo cannot resize.
+
+By default, Ananke generates resized hero background images at these widths:
+
+```toml
+[params.ananke]
+responsive_image_widths = [480, 960, 1440, 1920]
+```
+
+You can override the widths in your site configuration. Use the widths you want browsers to switch between for hero background images:
+
+```toml
+[params.ananke]
+responsive_image_widths = [640, 1024, 1536]
+```
+
+The generated CSS uses media queries and keeps the existing `featured_image_class` behaviour for fitting and alignment. Widths larger than the source image are ignored.
 
 ## Other hero settings
 
