@@ -12,9 +12,9 @@ jobs:
   sync:
     runs-on: ubuntu-latest
 
-  env:
-    GH_TOKEN: ${{ github.token }}
-    OWNER: gohugo-ananke
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OWNER: gohugo-ananke
 
     steps:
       - name: Check out repository
@@ -36,36 +36,56 @@ jobs:
 
           : "${GH_TOKEN:?GH_TOKEN is required}"
 
+          rm -rf data/contributors
           mkdir -p data/contributors
 
           repos=(
-            "gohugo-theme-ananke"
-            "gohugo-theme-ananke-documentation"
-            "gohugo-theme-ananke-demo-basic"
-            "gohugo-theme-ananke-demo-starter"
+            ".github"
+            "ananke"
+            "ananke-asylum"
+            "documentation"
+            "gohugo-ananke.github.io"
+            "hugofixer"
+            "template-git-submod"
+            "template-hugo-mod"
           )
+
+          fetched_count=0
 
           for repo in "${repos[@]}"; do
             echo "Fetching .all-contributorsrc from ${OWNER}/${repo}"
 
-            gh api \
+            if ! content=$(gh api \
               --method GET \
               "repos/${OWNER}/${repo}/contents/.all-contributorsrc" \
               --jq '.content' \
+              2>/dev/null); then
+              echo "::warning::No .all-contributorsrc found in ${OWNER}/${repo}; skipping."
+              continue
+            fi
+
+            printf '%s' "${content}" \
               | tr -d '\n' \
               | base64 --decode \
               > "data/contributors/${repo}.json"
+
+            fetched_count=$((fetched_count + 1))
           done
 
+          if [ "${fetched_count}" -eq 0 ]; then
+            echo "::error::No contributor source files were fetched."
+            exit 1
+          fi
+
       - name: Generate central contributors page
-        run: node ./scripts/merge-all-contributors.ts --config=./data/contributors --output=./docs/contributors.md
+        run: npm run contributors:merge
 
       - name: Commit changes
         shell: bash
         run: |
           set -euo pipefail
 
-          if git diff --quiet -- data/contributors docs/contributors.md; then
+          if git diff --quiet -- data/contributors content/information/contributors.md; then
             echo "No contributor changes detected."
             exit 0
           fi
@@ -73,6 +93,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/contributors docs/contributors.md
+          git add data/contributors content/information/contributors.md
           git commit -m "docs(contributors): sync aggregated contributors"
           git push
