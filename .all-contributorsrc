@@ -2,7 +2,7 @@
   "projectName": "gohugo-theme-ananke-documentation",
   "projectOwner": "davidsneighbour",
   "files": [
-    "information/contributors.md"
+    "content/information/contributors.md"
   ],
   "commitType": "docs",
   "commitConvention": "angular",
