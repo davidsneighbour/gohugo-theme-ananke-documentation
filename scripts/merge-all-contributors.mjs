@@ -7,6 +7,10 @@ const outputFile = path.resolve(
   "content/information/contributors.md",
 );
 
+const listStartMarker =
+  "<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->";
+const listEndMarker = "<!-- ALL-CONTRIBUTORS-LIST:END -->";
+
 /**
  * Escape markdown table content.
  *
@@ -58,8 +62,7 @@ async function loadContributorFiles() {
         merged.set(login, {
           login,
           name: contributor.name ?? login,
-          profile:
-            contributor.profile ?? `https://github.com/${login}`,
+          profile: contributor.profile ?? `https://github.com/${login}`,
           avatar_url: contributor.avatar_url ?? "",
           contributions,
           repos: [repoName],
@@ -85,23 +88,15 @@ async function loadContributorFiles() {
 }
 
 /**
- * Render contributor markdown.
+ * Render the generated contributor block body.
  *
  * @param {Array<object>} contributors
  * @returns {string}
  */
-function renderMarkdown(contributors) {
+function renderContributorsBlock(contributors) {
   const lines = [
-    "---",
-    "title: Contributors",
-    "date: 2026-04-15T08:00:00.000+0700",
-    "---",
-    "",
-    "* [Contributors](#contributors)",
-    "",
-    "Ananke lives from the work of its contributors.",
-    "",
-    "## Contributors",
+    "<!-- prettier-ignore-start -->",
+    "<!-- markdownlint-disable -->",
     "",
     `Total contributors: **${contributors.length}**`,
     "",
@@ -123,14 +118,79 @@ function renderMarkdown(contributors) {
     lines.push(`| ${name} | ${contributionList} | ${repos} |`);
   }
 
-  lines.push("");
+  lines.push(
+    "",
+    "<!-- markdownlint-restore -->",
+    "<!-- prettier-ignore-end -->",
+  );
 
-  return `${lines.join("\n")}\n`;
+  return lines.join("\n");
+}
+
+/**
+ * Render the default contributor page when the target file has no marker block yet.
+ *
+ * @param {string} generatedBlock
+ * @returns {string}
+ */
+function renderDefaultPage(generatedBlock) {
+  return [
+    "---",
+    "title: Contributors",
+    "date: 2026-04-15T08:00:00.000+0700",
+    "---",
+    "",
+    "* [Contributors](#contributors)",
+    "",
+    "Ananke lives from the work of its contributors.",
+    "",
+    "## Contributors",
+    "",
+    listStartMarker,
+    generatedBlock,
+    listEndMarker,
+    "",
+  ].join("\n");
+}
+
+/**
+ * Replace the generated list between all-contributors markers.
+ *
+ * @param {string} existingMarkdown
+ * @param {string} generatedBlock
+ * @returns {string}
+ */
+function replaceContributorsBlock(existingMarkdown, generatedBlock) {
+  const startIndex = existingMarkdown.indexOf(listStartMarker);
+  const endIndex = existingMarkdown.indexOf(listEndMarker);
+
+  if (startIndex === -1 || endIndex === -1 || endIndex <= startIndex) {
+    return renderDefaultPage(generatedBlock);
+  }
+
+  const beforeBlock = existingMarkdown.slice(0, startIndex + listStartMarker.length);
+  const afterBlock = existingMarkdown.slice(endIndex);
+
+  return `${beforeBlock}\n${generatedBlock}\n${afterBlock}`.replace(/\n*$/u, "\n");
 }
 
 async function main() {
   const contributors = await loadContributorFiles();
-  const markdown = renderMarkdown(contributors);
+  const generatedBlock = renderContributorsBlock(contributors);
+
+  let existingMarkdown = "";
+
+  try {
+    existingMarkdown = await fs.readFile(outputFile, "utf8");
+  } catch (error) {
+    if (error && error.code !== "ENOENT") {
+      throw error;
+    }
+  }
+
+  const markdown = existingMarkdown
+    ? replaceContributorsBlock(existingMarkdown, generatedBlock)
+    : renderDefaultPage(generatedBlock);
 
   await fs.writeFile(outputFile, markdown, "utf8");
 
