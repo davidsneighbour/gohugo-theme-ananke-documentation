@@ -6,6 +6,7 @@ date: 2026-01-16T08:00:00.000+0700
 * [Activate the contact form](#activate-the-contact-form)
 * [Logo](#logo)
 * [Localize date format](#localize-date-format)
+* [Show taxonomies on pages](#show-taxonomies-on-pages)
 
 > [!IMPORTANT]
 > Please note that Hugo is extensible configurable with more generic or more specific configuration. Please read the documentation about [configuration files](https://gohugo.io/configuration/introduction/#configuration-file) and [configuration directories](https://gohugo.io/configuration/introduction/#configuration-directory) to learn more about this topic. Whenever Ananke's documentation refers to the configuration file it refers to any of these possible locations.
@@ -39,3 +40,19 @@ date_format = "2. January 2006"
 ```
 
 With hugo 0.87.0 and above, you can also use predefined date layouts, like `:date_full`, and it will output localized dates or times. See hugo's documentation of the [`time.Format` function](https://gohugo.io/functions/dateformat/) for more details.
+
+### Show taxonomies on pages
+
+Ananke shows linked terms for the `categories` and `tags` taxonomies on single pages when they are set in page front matter. For example:
+
+```yaml
+categories:
+  - Beginner
+  - Server
+tags:
+  - cicd
+  - docker
+  - free
+```
+
+The terms use Hugo's taxonomy links, so the corresponding taxonomy must be enabled in your site configuration if you customise the default taxonomies.
